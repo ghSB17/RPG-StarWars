@@ -1,0 +1,32 @@
+body {
+    background-image: url('../images/bg3.jpg');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+
+
+}
+#idAttack, #idReset {
+    font-weight: bolder;
+    background-image: url('../images/game-controller.png');
+    background-size: auto;
+}
+
+.styleCharacterImg {
+    width: 90%;
+}
+.styleCharacterDiv {
+    border: 2px solid green;
+    width:10%;
+    height: 15%;
+    display:inline;
+    text-align:center;
+}
+.styleCharacterHeader {
+    margin: 0%;
+}
+.clsCharacter {
+    display: flex; 
+}

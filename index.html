@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/javascript/game.js"></script>
+    <title>Document</title>
+</head>
+<body >
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+    <p>Choose Your Character:</p>
+    <div id="idYourCharacter" class="clsCharacter">
+
+        <div id="ObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv baseCharacter">
+
+            <h6 class="styleCharacterHeader">Obi-Wan-Kenobi</h6>
+            <img src="./assets/images/starwars_obiwankenobi.jpg" alt="Obi-Wan-Kenobi" class="styleCharacterImg">
+            <h6 class="styleCharacterHeader charValue" data-hp-value="120" data-ap-value="8">120</h6>
+        </div>
+
+        <div id="LukeSkywalker" data-character-name="LukeSkywalker" class="styleCharacterDiv baseCharacter">
+
+            <h6 class="styleCharacterHeader">Luke Skywalker</h6>
+            <img src="./assets/images/starwars_lukeskywalker.jpg" alt="LukeSkywalker" class="styleCharacterImg">
+            <h6 class="styleCharacterHeader charValue" data-hp-value="100" data-ap-value="6">100</h6>
+        </div>
+
+        <div id="DarthSidious" data-character-name="DarthSidious" class="styleCharacterDiv baseCharacter">
+            <h6 class="styleCharacterHeader">Darth Sidious</h6>
+            <img src="./assets/images/starwars_darthsedious.jpg" alt="DarthSidious" class="styleCharacterImg">
+            <h6 class="styleCharacterHeader charValue" data-hp-value="150" data-ap-value="20">150</h6> 
+        </div>
+
+        <div id="DarthMaui" data-character-name="DarthMaui" class="styleCharacterDiv baseCharacter">
+            <h6 class="styleCharacterHeader">Darth Maui</h6>
+            <img src="./assets/images/starwars_darthmaui.jpg" alt="DarthMaui" class="styleCharacterImg">
+            <h6 class="styleCharacterHeader charValue" data-hp-value="172" data-ap-value="23">172</h6>
+        </div>    
+
+    </div>
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+    <p>Enemies Available to Attack:</p>
+    <div id="idEnimiesAvailable" class="clsCharacter">
+            <div id="idObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv enemyCharacter">
+
+                <h6 class="styleCharacterHeader">Obi-Wan-Kenobi</h6>
+                <img src="./assets/images/starwars_obiwankenobi.jpg" alt="Obi-Wan-Kenobi" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader">120</h6>
+            </div>
+        
+            <div id="idLukeSkywalker" data-character-name="LukeSkywalker" class="styleCharacterDiv enemyCharacter">
+        
+                <h6 class="styleCharacterHeader">Luke Skywalker</h6>
+                <img src="./assets/images/starwars_lukeskywalker.jpg" alt="LukeSkywalker" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader">100</h6>
+            </div>
+        
+            <div id="idDarthSidious" data-character-name="DarthSidious" class="styleCharacterDiv enemyCharacter">
+                <h6 class="styleCharacterHeader">Darth Sidious</h6>
+                <img src="./assets/images/starwars_darthsedious.jpg" alt="DarthSidious" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader">150</h6> 
+            </div>
+        
+            <div id="idDarthMaui" data-character-name="DarthMaui" class="styleCharacterDiv enemyCharacter">
+                <h6 class="styleCharacterHeader">Darth Maui</h6>
+                <img src="./assets/images/starwars_darthmaui.jpg" alt="DarthMaui" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader">172</h6>
+            </div>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------>
+    <div>
+        <p>Fight Section</p>
+        <button id="idAttack">
+            <!-- <img src="./assets/images/game-controller.png" alt="Attack">  -->
+            Attack
+        </button>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------>
+
+    <p>Defender</p>
+    <div id="idDefender" class="clsBaseCharacter clsCharacter">
+            <div id="ObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv defenderCharacter">
+
+                <h6 class="styleCharacterHeader">Obi-Wan-Kenobi</h6>
+                <img src="./assets/images/starwars_obiwankenobi.jpg" alt="Obi-Wan-Kenobi" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader charValue" data-hp-value="120" data-ap-value="8">120</h6>
+            </div>
+            
+            <div id="LukeSkywalker" data-character-name="LukeSkywalker" class="styleCharacterDiv defenderCharacter">
+            
+                <h6 class="styleCharacterHeader">Luke Skywalker</h6>
+                <img src="./assets/images/starwars_lukeskywalker.jpg" alt="LukeSkywalker" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader charValue" data-hp-value="100" data-ap-value="6">100</h6>
+            </div>
+            
+            <div id="DarthSidious" data-character-name="DarthSidious" class="styleCharacterDiv defenderCharacter">
+                <h6 class="styleCharacterHeader">Darth Sidious</h6>
+                <img src="./assets/images/starwars_darthsedious.jpg" alt="DarthSidious" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader charValue" data-hp-value="150" data-ap-value="20">150</h6> 
+            </div>
+            
+            <div id="DarthMaui" data-character-name="DarthMaui" class="styleCharacterDiv defenderCharacter">
+                <h6 class="styleCharacterHeader">Darth Maui</h6>
+                <img src="./assets/images/starwars_darthmaui.jpg" alt="DarthMaui" class="styleCharacterImg">
+                <h6 class="styleCharacterHeader charValue" data-hp-value="172" data-ap-value="23">172</h6>
+            </div>
+    </div>
+    <p id="idMessage"></p> 
+
+    <div>
+        <button id="idReset">Restart</button>
+    </div>
+</body>
+</html>
