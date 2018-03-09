@@ -40,7 +40,6 @@ body {
     font-weight: bolder;
 }
 
-#idEnimiesAvailable{
-    padding-top: 3%;
+#idYourCharacter, #idEnimiesAvailable, #idDefender{
     margin-top: 1%;
 }

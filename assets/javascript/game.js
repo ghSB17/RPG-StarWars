@@ -16,6 +16,7 @@ $(document).ready( function() {
     var vAPD;
     var numberOfEnemies=0;
     
+    //Function to Hide Elements of Div Tag, It accepts a string parameter which is "ID" of the tag to be hidden
     function hideElements(vID) { 
         var vHP;
         $(vID).children().each( function(index){ 
@@ -25,6 +26,8 @@ $(document).ready( function() {
         });
     };
 
+    //Function to initialize Screen for the NewGame 
+    //Only character to be chosen are visible
     function initializeScreen() {
         var vHP;
         hideElements('#idDefender');
@@ -49,6 +52,8 @@ $(document).ready( function() {
 
     }
 
+    //Once the character to be chosen is Visible, 
+    //Display Enemy Characters avaiable 
     $('.baseCharacter').on('click', function() {
         $("#idEnemiesHeader").show();
         
@@ -59,9 +64,11 @@ $(document).ready( function() {
             mouseClickBaseChar=false;
             mouseClickEnemyChar=true;
             $(this).siblings().each( function(index)  {
-                // console.log(index+": "+ $(this).attr('data-character-name'));
+                //Hide all the other characters in "Characters to be Chosen" area 
+                //except the chosen Character
                 charBName=$(this).attr('data-character-name');
                 $(this).hide();
+                //Show the Enemy Characters available based on the chosen Character
                 $('#idEnimiesAvailable').children().each( function(index) {
                     if( $(this).attr('data-character-name') === charBName )  { 
                         numberOfEnemies++;
@@ -74,13 +81,16 @@ $(document).ready( function() {
 
     });
 
+    //When Enemy Character is Chosen
+    //Fight Section with "Attack" Button is Displayed
     $('.enemyCharacter').on('click', function() {
         console.log("Numberofenemies:"+numberOfEnemies);
         if( mouseClickEnemyChar) {
             $('#idMessage').text("");
             $("#idDefenderHeader").show();
             $("#idFightSection").show();
-        
+            //To avoid choosing another Enemy
+
             mouseClickEnemyChar=false;
             vDefenderCharacter=$(this).attr('data-character-name');
             mouseClickAttack=true;
@@ -98,61 +108,67 @@ $(document).ready( function() {
     
     });
 
-
+    //Triggered When Attack Button
+    //Decrease the Defender Health Points by Chosen Character Attack Points(which increase by attack points on every attack) 
+    //Decrease the Chosen Character Health Points by  Defender Attack Points(which are constant)
     $('#idAttack').on('click', function() {
         console.log("Numberofenemies:"+numberOfEnemies);
+        //If No Enemies are Left to Attack
         if(numberOfEnemies===0) {
             $("#idMessage").text("Game Over!! Click Restart to Begin the Game!");
-            $('#idAttack').hide();
+            $('#idEnemiesHeader').hide();
+            $('#idFightSection').hide();
         } else if(mouseClickAttack===false){
+            //If No Enemy is Chosen from the Available Enemies
             $("#idMessage").text("No Enemy to Attack!!");
         } else {
             var vIDBaseCharacter = "#"+vBaseCharacter;
             var vIDDefenderCharacter = "#"+vDefenderCharacter;
                 
             vAPD=$('#idDefender').children(vIDDefenderCharacter).children('.charValue').attr('data-ap-value');
-                console.log("Defender Attack Points: "+vAPD);
+                // console.log("Defender Attack Points: "+vAPD);
                 
                 if( vCounter===0) {
                     vAPB=$('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').attr('data-ap-value');
-                    console.log("base Attack Points: "+vAPB);
-                    console.log($('#idYourCharacter').children(vIDBaseCharacter).children('.charValue'));
                     vscoreB = $('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').attr('data-hp-value');
                     vscoreD = $('#idDefender').children(vIDDefenderCharacter).children('.charValue').attr('data-hp-value');
-                    console.log("83): scoreB "+ vscoreB+" ,vscoreD "+ vscoreD );
-                    
+                   
                 }else {
                     vscoreB=$('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').text();
                     vscoreD = $('#idDefender').children(vIDDefenderCharacter).children('.charValue').text();
-                    console.log("88): scoreB "+ vscoreB+" ,vscoreD "+ vscoreD );
                 }
                 vCounter++;
                 newScoreD=parseInt(vscoreD)-vCounter*vAPB;
                 newScoreB=parseInt(vscoreB)-vAPD;
-                console.log("D:"+newScoreD);
-                console.log("B:"+newScoreB);
                 $('#idDefender').children(vIDDefenderCharacter).children('.charValue').text(newScoreD);
+
+                //If Defender Health Points Decreased to "0"
+                //Propt to Choose a New Enemy to continue the Game Or
+                //If No Enemies are Available, Prompt to Restart the Game
                 if ( newScoreD <= 0 ) {
                     numberOfEnemies--;
                     if(numberOfEnemies===0) {
-                        $("#idMessage").text("Game Over!! Click Restart to Begin the Game!");
-                        $("#idAttack").hide();
+                        $("#idMessage").text("Game Over!! Click Restart to Begin A New Game!");
+                        $('#idEnemiesHeader').hide();
+                        $('#idFightSection').hide();
                     } else {
-                    $('#idMessage').text("You have defeated "+vDefenderCharacter+". "+"You may choose to fight different Enemy character");
-                    vDefenderCharacter="";
-                    mouseClickEnemyChar=true;
-                    newScoreB+=vAPD;
-                    $('#idDefender').children(vIDDefenderCharacter).hide();
-                    mouseClickEnemyChar=true;
-                    mouseClickAttack=false;
+                        $('#idMessage').text("You have defeated "+vDefenderCharacter+". "+"You may choose to fight different Enemy character");
+                        vDefenderCharacter="";
+                        mouseClickEnemyChar=true;
+                        newScoreB+=vAPD;
+                        $('#idDefender').children(vIDDefenderCharacter).hide();
+                        mouseClickEnemyChar=true;
+                        mouseClickAttack=false;
                     }
 
                 } else if( newScoreD > 0 && newScoreB <= 0 ) {
-
+                //If Chosen Character Health Points are reduced to "0"
+                //Prompt to Restart Game
                     $('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').text(newScoreB);
-                    $('#idMessage').html("You have been defeated ........GAME OVER!!"+"<br><br>Click Restart to Begin the Game!");
+                    $('#idMessage').html("<p>You have been defeated ........GAME OVER!!</p>"+"<p>Click Restart to Begin A New Game!</p>");
                     mouseClickEnemyChar=false;
                     mouseClickAttack=false;
+                    
                     $("#idFightSection").hide();
                     
                     
@@ -163,13 +179,10 @@ $(document).ready( function() {
                     $('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').text(newScoreB);
                 }
             
-            // } else if(newScoreB>0) {
-            //     $('#idMessage').text("No Enemy to Fight!");
-            //     mouseClickEnemyChar=true;
-            // }
         }
     });
 
+    //Reset the Game by Initializing all the Elements, variables for New Game
     $('#idReset').on('click', function() {
          initializeScreen();
     });
