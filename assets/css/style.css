@@ -1,32 +1,46 @@
 body {
-    background-image: url('../images/bg3.jpg');
-
+    background-image: url('../images/bg1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
-
-
+    color: palegoldenrod;
+    height: 100%;
+    padding: 5%;
 }
-#idAttack, #idReset {
-    font-weight: bolder;
-    background-image: url('../images/game-controller.png');
-    background-size: auto;
+
+.clsTop {
+    margin-top: 10%;
+    margin-bottom: 0%;
+}
+
+.clsHeader{
+    background:transparent;
+    color:darkgoldenrod;
+    font-size: 500%;
 }
 
 .styleCharacterImg {
     width: 90%;
 }
+
 .styleCharacterDiv {
-    border: 2px solid green;
-    width:10%;
-    height: 15%;
-    display:inline;
+    border: 3px solid green;
+    color: aliceblue;
+    width:22%;
     text-align:center;
+    background-color: transparent;
 }
+
 .styleCharacterHeader {
     margin: 0%;
 }
-.clsCharacter {
-    display: flex; 
+
+#idAttack, #idReset {
+    font-weight: bolder;
+}
+
+#idEnimiesAvailable{
+    padding-top: 3%;
+    margin-top: 1%;
 }

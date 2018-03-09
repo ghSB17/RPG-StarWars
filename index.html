@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
-    <title>Document</title>
+    <title>Star Wars RPG</title>
 </head>
 <body >
-
+<div class="jumbotron text-center clsHeader" >Star Wars RPG</div>
 <!------------------------------------------------------------------------------------------------------------------>
 
     <p>Choose Your Character:</p>
-    <div id="idYourCharacter" class="clsCharacter">
+    <div id="idYourCharacter" class="d-flex align-items-stretch clsCharacter">
 
         <div id="ObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv baseCharacter">
 
@@ -47,8 +48,8 @@
 
 <!------------------------------------------------------------------------------------------------------------------>
 
-    <p>Enemies Available to Attack:</p>
-    <div id="idEnimiesAvailable" class="clsCharacter">
+    <p id="idEnemiesHeader" class="clsTop">Enemies Available to Attack:</p>
+    <div id="idEnimiesAvailable" class="d-flex align-items-stretch clsCharacter">
             <div id="idObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv enemyCharacter">
 
                 <h6 class="styleCharacterHeader">Obi-Wan-Kenobi</h6>
@@ -76,7 +77,7 @@
             </div>
     </div>
 <!------------------------------------------------------------------------------------------------------------------>
-    <div>
+    <div id="idFightSection" class="clsTop">
         <p>Fight Section</p>
         <button id="idAttack">
             <!-- <img src="./assets/images/game-controller.png" alt="Attack">  -->
@@ -85,8 +86,8 @@
     </div>
 <!------------------------------------------------------------------------------------------------------------------>
 
-    <p>Defender</p>
-    <div id="idDefender" class="clsBaseCharacter clsCharacter">
+    <p id="idDefenderHeader" class="clsTop">Defender</p>
+    <div id="idDefender" class="d-flex align-items-stretch clsBaseCharacter clsCharacter">
             <div id="ObiWanKenobi" data-character-name="ObiWanKenobi" class="styleCharacterDiv defenderCharacter">
 
                 <h6 class="styleCharacterHeader">Obi-Wan-Kenobi</h6>
@@ -113,10 +114,12 @@
                 <h6 class="styleCharacterHeader charValue" data-hp-value="172" data-ap-value="23">172</h6>
             </div>
     </div>
-    <p id="idMessage"></p> 
+    
+    <div id="idMessage" class="clsTop">
+    </div>
 
     <div>
-        <button id="idReset">Restart</button>
+        <button id="idReset" class="clsTop">Restart</button>
     </div>
 </body>
 </html>
