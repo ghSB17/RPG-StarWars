@@ -126,7 +126,6 @@ $(document).ready( function() {
             var vIDDefenderCharacter = "#"+vDefenderCharacter;
                 
             vAPD=$('#idDefender').children(vIDDefenderCharacter).children('.charValue').attr('data-ap-value');
-                // console.log("Defender Attack Points: "+vAPD);
                 
                 if( vCounter===0) {
                     vAPB=$('#idYourCharacter').children(vIDBaseCharacter).children('.charValue').attr('data-ap-value');
@@ -148,7 +147,8 @@ $(document).ready( function() {
                 if ( newScoreD <= 0 ) {
                     numberOfEnemies--;
                     if(numberOfEnemies===0) {
-                        $("#idMessage").text("Game Over!! Click Restart to Begin A New Game!");
+                        $("#idMessage").html("<p><h2>You are the Winner!!</h2></p>"+
+                                        "<p>Game Over!! Click Restart to Begin A New Game!</p>");
                         $('#idEnemiesHeader').hide();
                         $('#idFightSection').hide();
                     } else {
